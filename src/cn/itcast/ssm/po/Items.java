@@ -1,12 +1,22 @@
 package cn.itcast.ssm.po;
 
+import java.util.Date;
+
 public class Items {
 	private Integer id;
 	private String name;
 	private String detail;
 	private double price;
+	private Date createtime;
+	
 	public Integer getId() {
 		return id;
+	}
+	public Date getCreatetime() {
+		return createtime;
+	}
+	public void setCreatetime(Date createtime) {
+		this.createtime = createtime;
 	}
 	public void setId(Integer id) {
 		this.id = id;
