@@ -34,6 +34,7 @@ public class ItemsController1 implements Controller {
 		ModelAndView modelAndView=new ModelAndView();
 		//相当于request的setAttribut,在jsp页面中通过itemsList取数据
 		modelAndView.addObject("itemsList",itemsList);
+		
 		//指定视图
 		modelAndView.setViewName("/WEB-INF/jsp/items/itemsList.jsp");		
 		

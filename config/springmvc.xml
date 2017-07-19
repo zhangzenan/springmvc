@@ -16,10 +16,18 @@ http://www.springframework.org/schema/aop
 http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<!-- 配置Handler -->
-	<bean id="itemsController1" name="/queryItems.action" class="cn.itcast.ssm.controller.ItemsController1"/>
+	<bean id="itemsController1" name="/queryItems_test.action" class="cn.itcast.ssm.controller.ItemsController1"/>
 	
 	<!-- 配置另外一个Handler -->
 	<bean id="itemsController2" class="cn.itcast.ssm.controller.ItemsController2"/>
+	
+	<!-- 对于注解的Handler可以单个配置
+	实际开发中建议使用组件扫描 -->
+	<!-- <bean class="cn.itcast.ssm.controller.ItemsController3"/> -->
+	
+	<!-- 可以扫描controller、service...
+	这里扫描controller,指定controller的包 -->
+	<context:component-scan base-package="cn.itcast.ssm.controller"></context:component-scan>
 	
 	<!-- 处理器映射器 
 	将bean的name作为url进行查找，需要在配置Handler时指定beanname(就是url)-->
@@ -29,12 +37,24 @@ http://www.springframework.org/schema/aop/spring-aop.xsd">
 	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
-				<prop key="/queryItems1.action">itemsController1</prop>
+				<prop key="/queryItems.action">itemsController1</prop>
 				<prop key="/queryItems2.action">itemsController1</prop>
 				<prop key="/queryItems3.action">itemsController2</prop>
 			</props>
 		</property>		
 	</bean>
+	
+	<!-- 注解映射器 -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+	<!-- 注解适配器 -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
+	
+	<!-- 使用mvc:annotation-driven代替上边注解映射器和注解适配器配置
+	mvc:annotation-driven默认加载很多的参数绑定方法，
+	比如json转换解析器就默认加载了，如果使用mvc:annotation-driven不用配置上边的RequestMappingHandlerMapping和RequestMappingHandlerAdapter
+	实际开发时使用 mvc:annotation-driven-->
+	
+	<!-- <mvc:annotation-driven></mvc:annotation-driven> -->
 
 	<!-- 处理器适配器  所有处理器适配器都实现HandlerAdapter接口-->
 	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
