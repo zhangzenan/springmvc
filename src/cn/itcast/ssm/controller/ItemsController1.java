@@ -20,7 +20,7 @@ public class ItemsController1 implements Controller {
 		Items items_1=new Items();
 		items_1.setName("联想笔记本");
 		items_1.setPrice(6000);
-		items_1.setDetail("这是联想笔记本");		
+		items_1.setDetail("这是联想笔记本");	
 		
 		Items items_2=new Items();
 		items_2.setName("苹果笔记本");

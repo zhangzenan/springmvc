@@ -4,13 +4,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.HttpRequestHandler;
-import org.springframework.web.servlet.ModelAndView;
 
 import cn.itcast.ssm.po.Items;
 
@@ -39,6 +37,8 @@ public class ItemsController2 implements HttpRequestHandler {
 		arg0.getRequestDispatcher("/WEB-INF/jsp/items/itemsList.jsp").forward(arg0, arg1);
 		
 	}
+
+
 
 
 
