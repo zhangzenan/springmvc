@@ -43,7 +43,9 @@ public class ItemsController3 {
 		modelAndView.addObject("itemsList", itemsList);
 		
 		// 指定视图
-		modelAndView.setViewName("/WEB-INF/jsp/items/itemsList.jsp");
+		//下边的路径，如果在视图解析器中配置jsp路径的前缀和jsp的后缀，修改为
+		//modelAndView.setViewName("/WEB-INF/jsp/items/itemsList.jsp");
+		modelAndView.setViewName("items/itemsList");
 
 		return modelAndView;
 

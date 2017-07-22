@@ -63,5 +63,9 @@ http://www.springframework.org/schema/aop/spring-aop.xsd">
 	
 	<!-- 视图解析器 
 	解析jsp视图，默认使用jstl标签，classpath下得有jstl的包-->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 视图解析器配置前缀和后缀 -->
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
 </beans>
